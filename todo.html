@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        h1 { text-align: center; }
+        ul { list-style-type: none; padding: 0; }
+        li { display: flex; justify-content: space-between; align-items: center; margin: 10px 0; }
+        input[type='text'] { flex: 1; margin-right: 10px; }
+        button { cursor: pointer; }
+        .completed { text-decoration: line-through; color: grey; }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="todoInput" placeholder="Add a new task..." />
+    <button id="addTodo">Add</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        const todoInput = document.getElementById('todoInput');
+        const addTodoButton = document.getElementById('addTodo');
+        const todoList = document.getElementById('todoList');
+        const todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+        function renderTodos() {
+            todoList.innerHTML = '';
+            todos.forEach((todo, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class='${todo.completed ? 'completed' : ''}'>${todo.text}</span>\n                <button onclick='editTodo(${index})'>Edit</button>\n                <button onclick='deleteTodo(${index})'>Delete</button>\n                <button onclick='toggleComplete(${index})'>${todo.completed ? 'Undo' : 'Complete'}</button>`;
+                todoList.appendChild(li);
+            });
+        }
+
+        function addTodo() {
+            const newTodoText = todoInput.value.trim();
+            if (newTodoText) {
+                todos.push({ text: newTodoText, completed: false });
+                saveTodos();
+                todoInput.value = '';
+                renderTodos();
+            }
+        }
+
+        function deleteTodo(index) {
+            todos.splice(index, 1);
+            saveTodos();
+            renderTodos();
+        }
+
+        function editTodo(index) {
+            const newText = prompt('Edit your task:', todos[index].text);
+            if (newText !== null) {
+                todos[index].text = newText;
+                saveTodos();
+                renderTodos();
+            }
+        }
+
+        function toggleComplete(index) {
+            todos[index].completed = !todos[index].completed;
+            saveTodos();
+            renderTodos();
+        }
+
+        function saveTodos() {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+        addTodoButton.addEventListener('click', addTodo);
+        renderTodos();
+    </script>
+</body>
+</html>
