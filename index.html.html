@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav NAS Clinic & Spine Care Centre - Expert Treatment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 0.9rem 2.5rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            background: #e55a24;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+        }
+
+        .secondary-button {
+            background: white;
+            color: #0066cc;
+        }
+
+        .secondary-button:hover {
+            background: #f0f0f0;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #0066cc;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about {
+            background: #f9f9f9;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #0066cc;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: #ff6b35;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            text-align: center;
+            border-top: 4px solid #0066cc;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: #f9f9f9;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .rating {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: #0066cc;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-box {
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box p {
+            opacity: 0.95;
+        }
+
+        .contact-box a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #003d7a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-grid,
+            .services-grid,
+            .testimonials-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">🏥 Pranav NAS Clinic</div>
+            <div class="contact-info">
+                <a href="tel:+919890074969">📞 +91 98900 74969</a>
+                <a href="https://wa.me/919890074969?text=Hello%20Pranav%20NAS%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank">💬 WhatsApp</a>
+                <a href="https://www.instagram.com/tusharjondhale445?igsh=NjZ2MTV1OXk4OXBu" target="_blank">📸 Instagram</a>
+                <a href="#contact">Get In Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pranav NAS Clinic & Spine Care Centre</h1>
+            <p>Excellence in Neurological and Spinal Treatment</p>
+            <p style="font-size: 1rem; margin-bottom: 1.5rem;">⭐ 4.9/5 Rating • 58+ Happy Patients</p>
+            <a href="tel:+919890074969" class="cta-button">Call Now</a>
+            <a href="https://wa.me/919890074969?text=Hello%20Pranav%20NAS%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" class="cta-button" style="background: #25d366;">Book on WhatsApp</a>
+            <a href="#contact" class="cta-button secondary-button">More Info</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Expert Care, Fast Recovery</h3>
+                    <p>At Pranav NAS Clinic, we specialize in comprehensive neurological and spinal care with proven results. Our experienced team delivers personalized treatment plans that focus on your rapid recovery and long-term wellness.</p>
+                    <p>With a 4.9-star rating from 58+ satisfied patients, we're committed to providing the highest quality healthcare services in a supportive environment.</p>
+                    <p><strong>Our Promise:</strong> Fast relief, professional support, and visible results from your first visit.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Patient Rating</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">58+</div>
+                        <div class="stat-label">Happy Patients</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Dedicated Care</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">Fast</div>
+                        <div class="stat-label">Pain Relief</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our Specializations</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏃</div>
+                    <h3>Spine Treatment</h3>
+                    <p>Comprehensive spinal care for back pain, neck pain, and spine-related conditions with proven recovery methods.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚕️</div>
+                    <h3>Rehabilitation</h3>
+                    <p>Structured recovery programs to restore mobility, strength, and quality of life for faster healing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section style="background: #f9f9f9; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Pain Relief Success Stories</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop" alt="Pain relief treatment" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div style="padding: 1.5rem; background: white;">
+                        <h3 style="color: #0066cc; margin-bottom: 0.5rem;">Back Pain Relief</h3>
+                        <p style="color: #666; font-size: 0.9rem;">Effective treatment for chronic back pain with fast recovery</p>
+                    </div>
+                </div>
+                <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1631217314830-4ec6d9e9f869?w=400&h=300&fit=crop" alt="Neck pain treatment" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div style="padding: 1.5rem; background: white;">
+                        <h3 style="color: #0066cc; margin-bottom: 0.5rem;">Neck Pain Treatment</h3>
+                        <p style="color: #666; font-size: 0.9rem;">Professional care for neck stiffness and pain relief</p>
+                    </div>
+                </div>
+                <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1579656476733-467174177d81?w=400&h=300&fit=crop" alt="Rehabilitation therapy" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div style="padding: 1.5rem; background: white;">
+                        <h3 style="color: #0066cc; margin-bottom: 0.5rem;">Rehabilitation Program</h3>
+                        <p style="color: #666; font-size: 0.9rem;">Complete recovery and mobility restoration therapy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background: #f9f9f9; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Follow Dr. Tushar Jondhale on Instagram</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h3 style="color: #0066cc; font-size: 1.3rem; margin-bottom: 1rem;">📸 @tusharjondhale445</h3>
+                    <p style="color: #555; margin-bottom: 1rem; line-height: 1.8;">Follow Dr. Tushar Jondhale on Instagram to see:</p>
+                    <ul style="color: #555; margin-left: 1.5rem; line-height: 2;">
+                        <li>✅ Real patient treatment cases and before-after transformations</li>
+                        <li>✅ Expert tips on spinal and neurological health</li>
+                        <li>✅ Latest treatment techniques and innovations</li>
+                        <li>✅ Patient testimonials and success stories</li>
+                        <li>✅ Daily health awareness posts</li>
+                    </ul>
+                    <a href="https://www.instagram.com/tusharjondhale445?igsh=NjZ2MTV1OXk4OXBu" target="_blank" class="cta-button" style="background: #e1306c; margin-top: 1.5rem;">Follow on Instagram</a>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); text-align: center;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📱</div>
+                    <p style="color: #666; margin-bottom: 1.5rem;">Stay updated with the latest treatments and health tips</p>
+                    <p style="color: #0066cc; font-weight: 600; margin-bottom: 1rem;">Join 1000+ followers</p>
+                    <a href="https://www.instagram.com/tusharjondhale445?igsh=NjZ2MTV1OXk4OXBu" target="_blank" class="cta-button" style="background: #e1306c;">Visit Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Book Your Appointment</h2>
+            <div style="background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); max-width: 700px; margin: 0 auto;">
+                <form id="bookingForm" style="display: grid; gap: 1.5rem;">
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 600;">Your Name *</label>
+                        <input type="text" required placeholder="Enter your full name" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 600;">Phone Number *</label>
+                        <input type="tel" required placeholder="Your mobile number" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 600;">Preferred Date *</label>
+                        <input type="date" required id="appointmentDate" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 600;">Preferred Time Slot *</label>
+                        <select required id="timeSlot" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                            <option value="">-- Select a time slot --</option>
+                            <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                            <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                            <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
+                            <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
+                            <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+                            <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+                            <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
+                            <option value="5:00 PM - 6:00 PM">5:00 PM - 6:00 PM</option>
+                            <option value="6:00 PM - 7:00 PM">6:00 PM - 7:00 PM</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 600;">Problem Description</label>
+                        <textarea placeholder="Brief description of your health issue" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; min-height: 100px; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button" style="width: 100%; background: #0066cc; margin: 0; cursor: pointer; font-size: 1rem; padding: 1rem;">Book Appointment via WhatsApp</button>
+                </form>
+                <p style="text-align: center; color: #666; margin-top: 1rem; font-size: 0.9rem;">✓ You will be redirected to WhatsApp to confirm your appointment</p>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Patients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"My waist felt relieved on the first checkup. The treatment was professional and the results were immediate."</p>
+                    <p class="reviewer-name">- Satisfied Patient</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I was facing severe back pain for a month. The doctor was so supportive and helpful. Fast recovery with minimum cost!"</p>
+                    <p class="reviewer-name">- Apollo Coaching Classes</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"My wife had hand and neck pain for one year. After visiting many doctors, we got the right consultation here. Completely recovered!"</p>
+                    <p class="reviewer-name">- Yogesh Lokhande</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <!-- Doctor Info -->
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 8px; margin-bottom: 2rem; text-align: center;">
+                <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">🩺 Dr. Tushar Jondhale</h3>
+                <p style="margin-bottom: 1rem; font-size: 1.1rem;">Senior Consultant - Neurology & Spine Care</p>
+                <a href="tel:+918637444579" class="cta-button" style="background: #ff6b35; margin-right: 1rem;">📞 +91 8637444579</a>
+                <a href="https://wa.me/918637444579?text=Hello%20Dr.%20Tushar%20Jondhale%2C%20I%20would%20like%20to%20book%20a%20consultation" target="_blank" class="cta-button" style="background: #25d366;">💬 WhatsApp</a>
+                <a href="https://www.instagram.com/tusharjondhale445?igsh=NjZ2MTV1OXk4OXBu" target="_blank" class="cta-button" style="background: #e1306c; margin-left: 1rem;">📸 Instagram</a>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <div class="contact-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p><a href="tel:+919890074969">+91 98900 74969</a></p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Clinic</p>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Jai Bhawani Housing Society, 13/a<br>Pundlik Nagar Rd, Garkheda<br>Chhatrapati Sambhajinagar, MH 431009</p>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-icon">🕐</div>
+                    <h3>Hours</h3>
+                    <p>Open Daily<br>10:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+
+            <!-- Google Map -->
+            <div style="margin-top: 2rem; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.7465948898317!2d75.34216!3d19.88454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb9a1234567890%3A0x1234567890abcdef!2sPranav%20NAS%20Clinic%20And%20Spine%20Care%20Centre!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade;"></iframe>
+                <div style="background: white; padding: 1.5rem; text-align: center;">
+                    <p style="color: #666; margin-bottom: 1rem;">📍 Open in Google Maps for directions</p>
+                    <a href="https://maps.app.goo.gl/Hhf5b58Gx89c8kW76" target="_blank" class="cta-button" style="background: #4285f4;">Get Directions</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 8px; margin-top: 2rem;">
+                <p style="margin-bottom: 1rem; font-size: 1.1rem;">📱 Book Your Appointment Instantly</p>
+                <a href="https://wa.me/919890074969?text=Hello%20Pranav%20NAS%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" class="cta-button" style="background: #25d366; margin-right: 1rem;">Chat on WhatsApp</a>
+                <a href="tel:+919890074969" class="cta-button">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pranav NAS Clinic & Spine Care Centre. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Providing Expert Neurological & Spinal Care in Chhatrapati Sambhajinagar</p>
+    </footer>
+
+    <script>
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('appointmentDate').setAttribute('min', today);
+
+        // Handle booking form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[type="text"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            const date = this.querySelector('input[type="date"]').value;
+            const time = this.querySelector('select').value;
+            const description = this.querySelector('textarea').value;
+
+            // Format date
+            const dateObj = new Date(date);
+            const formattedDate = dateObj.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            // Create WhatsApp message
+            const message = `Hello Pranav NAS Clinic,
+
+I would like to book an appointment with the following details:
+
+👤 Name: ${name}
+📱 Phone: ${phone}
+📅 Preferred Date: ${formattedDate}
+🕐 Preferred Time: ${time}
+📝 Issue: ${description || 'Not specified'}
+
+Please confirm my appointment.
+
+Thank you!`;
+
+            // Redirect to WhatsApp
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/919890074969?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
